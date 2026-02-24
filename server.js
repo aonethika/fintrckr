@@ -24,11 +24,11 @@ app.get("/", (req, res) => {
 });
 
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(null, true); 
     }
   },
   credentials: true
@@ -48,9 +48,9 @@ app.use("/api/group-transactions", groupTransactionRoutes)
 app.use("/api/monthly-summary", monthlySummaryRoutes)
 app.use("/api/upi", upiRoute)
 
-app.get('/',(req, res)=>{
-    res.send("API running")
-})
+// app.get('/',(req, res)=>{
+//     res.send("API running")
+// })
 
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
