@@ -18,6 +18,11 @@ const allowedOrigins = [
   "http://localhost:5173"
 ];
 
+
+app.get("/", (req, res) => {
+  res.send("Fintrckr backend running ✅");
+});
+
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
