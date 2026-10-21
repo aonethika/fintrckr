@@ -1,0 +1,26 @@
+name: Finsight checks
+on:
+  push:
+    branches: [finsight-release]
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: |
+            frontend/package-lock.json
+            backend/package-lock.json
+      - run: npm ci --prefix frontend
+      - run: npm run lint --prefix frontend
+      - run: npm run build --prefix frontend
+      - run: npm ci --prefix backend
+        env:
+          MONGOMS_DISABLE_POSTINSTALL: "1"
+      - run: npm test --prefix backend
+      - run: npm audit --prefix backend --omit=dev --audit-level=high
+      - run: npm audit --prefix frontend --omit=dev --audit-level=high

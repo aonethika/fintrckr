@@ -1,0 +1,11 @@
+.local-data/
+.release/
+node_modules/
+**/node_modules/
+**/dist/
+**/uploads/
+*.log
+finsight-*.png
+**/.env
+**/.env.*
+!**/.env.example

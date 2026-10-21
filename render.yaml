@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: fintrckr
+    runtime: node
+    plan: free
+    branch: finsight-release
+    buildCommand: npm ci --prefix frontend --include=dev && npm run build --prefix frontend && npm ci --prefix backend --omit=dev
+    startCommand: npm start --prefix backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: FRONTEND_URL
+        value: https://fintrckr.netlify.app
+      - key: FINSIGHT_AI_API_KEY
+        sync: false
+      - key: FINSIGHT_AI_BASE_URL
+        value: https://api.experientiallabs.ai/v1
+      - key: FINSIGHT_AI_MODEL
+        value: gpt-6-astra

@@ -1,0 +1,31 @@
+const paths = {
+  grid: 'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',
+  arrows: 'M4 7h16m-4-4 4 4-4 4M20 17H4m4-4-4 4 4 4',
+  wallet: 'M20 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15v14H5a2 2 0 0 1-2-2V5m17 7h-6v5h6m-3-2.5h.01',
+  chart: 'M4 3v17h17M8 15l4-5 4 3 5-7',
+  users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m18 0v-2a4 4 0 0 0-3-3.87M15 3.13a4 4 0 0 1 0 7.75M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
+  file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6M8 13h8M8 17h5',
+  spark: 'm12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5zM20 2v4M18 4h4',
+  settings: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1z',
+  arrowUp: 'M7 17 17 7M7 7h10v10', arrowDown: 'M7 7 17 17M7 17h10V7',
+  chevron: 'm9 5 7 7-7 7', down: 'm6 9 6 6 6-6', plus: 'M12 5v14M5 12h14',
+  search: 'M21 21l-5-5M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
+  bell: 'M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4',
+  calendar: 'M4 5h16v16H4zM8 2v6M16 2v6M4 11h16',
+  upload: 'M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6', download: 'M12 3v13m-5-5 5 5 5-5M4 16v5h16v-5',
+  close: 'm6 6 12 12M6 18 18 6', menu: 'M4 6h16M4 12h16M4 18h16',
+  check: 'm5 12 4 4L19 6', edit: 'm15 4 5 5M4 20l4-1L21 6l-3-3L5 16z',
+  trash: 'M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7M14 10v7',
+  logout: 'M9 3H3v18h6M9 12h12m-5-5 5 5-5 5', home: 'm3 10 9-7 9 7v11h-6v-7H9v7H3z',
+  coffee: 'M4 8h13v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 9h2a3 3 0 0 1 0 6h-2M7 2v3M12 2v3',
+  palm: 'M12 21V9M12 10Q3 1 2 10q5-3 10 0M12 10Q21 1 22 10q-5-3-10 0M12 9Q8 1 4 3M12 9q4-8 8-6',
+  bag: 'M5 7h14l2 14H3zM9 8V5a3 3 0 0 1 6 0v3', car: 'M3 11l2-7h14l2 7v7H3zM3 11h18M6 18v3M18 18v3M6 14h2M16 14h2',
+  card: 'M3 5h18v14H3zM3 10h18M6 15h4', target: 'M21 12a9 9 0 1 1-9-9M17 12a5 5 0 1 1-5-5M12 12l9-9M16 3h5v5',
+  send: 'm22 2-7 20-4-9-9-4zM22 2 11 13', shield: 'm12 2 9 4v6c0 6-9 10-9 10S3 18 3 12V6zM8 12l3 3 5-6',
+  help: 'M9 9a3 3 0 1 1 4 3v3M12 18h.01M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0',
+  filter: 'M3 5h18M6 12h12M10 19h4', globe: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18',
+  repeat: 'M3 7h16l-4-4m4 4-4 4M21 17H5l4 4m-4-4 4-4',
+};
+export default function Icon({ name = 'grid', size = 20, className = '', ...props }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true" {...props}><path d={paths[name] || paths.grid} /></svg>;
+}
